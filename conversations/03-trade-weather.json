@@ -1,0 +1,41 @@
+{
+  "id": "trade-weather",
+  "order": 3,
+  "title": "Trade the weather",
+  "description": "A station calls CQ. After reports, use the operator's name and swap weather with WX (weather) and ES (and).",
+  "station": "K0RAIN",
+  "lines": [
+    {
+      "speaker": "station",
+      "sent": "CQ CQ DE K0RAIN K0RAIN K"
+    },
+    {
+      "speaker": "learner",
+      "sent": "K0RAIN DE {MYCALL} K"
+    },
+    {
+      "speaker": "station",
+      "sent": "{MYCALL} DE K0RAIN UR RST {RANDOM_RST} NAME {RANDOM_NAME} QTH {RANDOM_QTH} K"
+    },
+    {
+      "speaker": "learner",
+      "sent": "K0RAIN DE {MYCALL} TNX {RANDOM_NAME} UR RST 579 NAME {MYNAME} QTH TEXAS K"
+    },
+    {
+      "speaker": "station",
+      "sent": "{MYCALL} DE K0RAIN TNX {MYNAME} WX {RANDOM_WX} ES {RANDOM_TEMP} K"
+    },
+    {
+      "speaker": "learner",
+      "sent": "K0RAIN DE {MYCALL} WX {RANDOM_WX_2} ES {RANDOM_TEMP_2} K"
+    },
+    {
+      "speaker": "station",
+      "sent": "{MYCALL} DE K0RAIN TNX FER QSO 73 K"
+    },
+    {
+      "speaker": "learner",
+      "sent": "K0RAIN DE {MYCALL} TNX FER QSO 73 SK"
+    }
+  ]
+}

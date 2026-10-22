@@ -1,0 +1,29 @@
+{
+  "id": "call-cq",
+  "order": 2,
+  "title": "Call CQ",
+  "description": "Call CQ yourself. When a station answers, trade signal reports, names, and locations, then sign off.",
+  "station": "W0TEST",
+  "lines": [
+    {
+      "speaker": "learner",
+      "sent": "CQ CQ DE {MYCALL} {MYCALL} K"
+    },
+    {
+      "speaker": "station",
+      "sent": "{MYCALL} DE W0TEST K"
+    },
+    {
+      "speaker": "learner",
+      "sent": "W0TEST DE {MYCALL} UR RST 579 NAME {MYNAME} QTH TEXAS K"
+    },
+    {
+      "speaker": "station",
+      "sent": "{MYCALL} DE W0TEST TNX UR RST {RANDOM_RST} NAME {RANDOM_NAME} QTH {RANDOM_QTH} K"
+    },
+    {
+      "speaker": "learner",
+      "sent": "W0TEST DE {MYCALL} TNX FER QSO 73 SK"
+    }
+  ]
+}

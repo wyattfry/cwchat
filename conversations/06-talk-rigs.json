@@ -1,0 +1,41 @@
+{
+  "id": "talk-rigs",
+  "order": 6,
+  "title": "Talk about your rig",
+  "description": "A harder contact. After reports, compare radios with RIG, PWR, ANT, and QRP, with plenty of B, V, and Z.",
+  "station": "W0BUZZ",
+  "lines": [
+    {
+      "speaker": "station",
+      "sent": "CQ CQ DE W0BUZZ W0BUZZ K"
+    },
+    {
+      "speaker": "learner",
+      "sent": "W0BUZZ DE {MYCALL} K"
+    },
+    {
+      "speaker": "station",
+      "sent": "{MYCALL} DE W0BUZZ UR RST {RANDOM_RST} NAME BEV QTH BOZEMAN K"
+    },
+    {
+      "speaker": "learner",
+      "sent": "W0BUZZ DE {MYCALL} TNX BEV UR RST 579 NAME {MYNAME} QTH TEXAS K"
+    },
+    {
+      "speaker": "station",
+      "sent": "{MYCALL} DE W0BUZZ FB {MYNAME} RIG HR QRP 5W ANT DIPOLE K"
+    },
+    {
+      "speaker": "learner",
+      "sent": "W0BUZZ DE {MYCALL} FB BEV PWR {RANDOM_PWR} ANT VERT K"
+    },
+    {
+      "speaker": "station",
+      "sent": "{MYCALL} DE W0BUZZ TNX FER QSO 73 K"
+    },
+    {
+      "speaker": "learner",
+      "sent": "W0BUZZ DE {MYCALL} TNX FER QSO 73 SK"
+    }
+  ]
+}

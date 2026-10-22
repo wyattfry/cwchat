@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Practice your first Morse code (CW) contact." />
+    <title>CW Contact</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <h1>CW Contact</h1>
+      <div class="activity-switch" role="group" aria-label="Activity">
+        <button type="button" data-activity="contact" aria-pressed="true">Contact</button>
+        <button type="button" data-activity="practice" aria-pressed="false">Practice</button>
+      </div>
+      <dl class="radio-info">
+        <div><dt>You</dt><dd id="my-call"></dd></div>
+        <div><dt>Name</dt><dd id="my-name"></dd></div>
+      </dl>
+    </header>
+
+    <main id="layout" class="layout">
+      <section id="levels" class="levels" aria-labelledby="levels-heading" hidden>
+        <h2 id="levels-heading">Choose a contact</h2>
+        <p class="levels-intro">
+          Key each message in Morse code and end it with <strong>K</strong>
+          (<strong>BK</strong> in quick exchanges, <strong>SK</strong> to sign off).
+          The station replies only when your message is correct.
+        </p>
+        <ol id="level-list" class="level-list" aria-label="Contacts"></ol>
+      </section>
+
+      <nav id="contact-bar" class="contact-bar" aria-label="Contact" hidden>
+        <a id="back" class="back" href="#/" aria-label="Back to all contacts">‹ Back</a>
+        <p id="contact-title" class="contact-title"></p>
+      </nav>
+
+      <details id="glossary-panel" class="panel glossary-panel" open>
+        <summary><h2 id="glossary-heading">Words in this contact</h2></summary>
+        <dl id="glossary" class="glossary"></dl>
+      </details>
+
+      <details id="chart-panel" class="panel chart-panel">
+        <summary><h2>Morse code</h2></summary>
+        <p class="help">Select a character to hear it at your speed.</p>
+        <div id="code-chart" class="code-chart-groups"></div>
+      </details>
+
+      <section id="transcript-panel" class="panel transcript-panel" aria-labelledby="transcript-heading">
+        <div class="panel-heading">
+          <h2 id="transcript-heading">Contact log</h2>
+          <div class="panel-actions">
+            <button type="button" id="restart" class="secondary" hidden>Restart contact</button>
+          </div>
+        </div>
+        <p id="countdown" class="countdown" role="status" hidden></p>
+        <ol id="transcript" class="transcript"></ol>
+      </section>
+
+      <section class="panel task-panel" aria-labelledby="task-heading">
+        <h2 id="task-heading">Your turn</h2>
+        <div id="task"></div>
+        <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+        <div id="task-overlay" class="task-overlay" role="status" hidden><span>Receiving…</span></div>
+      </section>
+
+      <section class="panel station-panel" aria-labelledby="station-heading">
+        <h2 id="station-heading">Keying station</h2>
+
+        <div id="key-area" class="key-area" tabindex="0" aria-describedby="key-help">
+          <div id="detect-prompt" class="detect-prompt" hidden>
+            <p>
+              Key <strong>SOS</strong> <span class="elements">··· −−− ···</span> with the straight key (↓) at a comfortable pace.
+              <span id="detect-progress"></span>
+            </p>
+            <button type="button" id="detect-cancel" class="secondary small">Cancel <kbd>Esc</kbd></button>
+          </div>
+          <div class="keycaps" aria-hidden="true">
+            <div class="keycap" data-key="ArrowLeft"><kbd>←</kbd><span class="cap-label">dit</span></div>
+            <div class="keycap" data-key="ArrowDown"><kbd>↓</kbd><span class="cap-label">key</span></div>
+            <div class="keycap" data-key="ArrowRight"><kbd>→</kbd><span class="cap-label">dah</span></div>
+          </div>
+          <p class="decoded-label">Decoded</p>
+          <p id="decoded" class="decoded" aria-label="Decoded text"></p>
+          <p class="elements-row">Current letter: <span id="elements" class="elements"></span></p>
+          <div id="pause-meter" class="pause-meter" aria-hidden="true">
+            <span class="pause-label">Pause</span>
+            <div class="pause-track">
+              <div id="pause-fill" class="pause-fill"></div>
+              <span id="pause-mark-letter" class="pause-mark"><span>letter</span></span>
+              <span id="pause-mark-word" class="pause-mark"><span>word</span></span>
+            </div>
+          </div>
+          <p id="unrecognized-note" class="note" hidden>A gray <span class="unknown" aria-hidden="true">?</span> marks an unrecognized character. Use Undo to remove it.</p>
+          <p id="key-help" class="visually-hidden"></p>
+          <p id="latency-note" class="help" hidden></p>
+          <p id="focus-hint" class="help warning focus-hint">
+            Keying is paused while a field or setting has focus. Press Tab or click this area to key.
+          </p>
+        </div>
+
+        <div id="touch-keys" class="touch-keys">
+          <button type="button" class="touch-key" data-key="dit">Dit</button>
+          <button type="button" class="touch-key" data-key="straight">Key</button>
+          <button type="button" class="touch-key" data-key="dah">Dah</button>
+        </div>
+
+        <div class="actions">
+          <button type="button" id="undo" class="secondary" aria-keyshortcuts="Backspace">Undo <kbd>Backspace</kbd></button>
+          <button type="button" id="clear" class="secondary" aria-keyshortcuts="Escape">Clear <kbd>Esc</kbd></button>
+        </div>
+
+        <div class="settings">
+          <details class="settings-group">
+            <summary id="speed-summary">Speed</summary>
+            <div class="settings-body">
+              <div class="speed">
+                <div><label for="speed">Speed</label> <output id="speed-value" for="speed"></output> <span class="help">(<kbd>-</kbd> <kbd>=</kbd>)</span></div>
+                <input id="speed" type="range" min="5" max="20" step="1" value="12" />
+                <div class="detect-row">
+                  <button type="button" id="listen" class="secondary small">Listen</button>
+                  <button type="button" id="detect-speed" class="secondary small">Detect my speed</button>
+                  <p id="speed-message" class="help" role="status"></p>
+                </div>
+              </div>
+
+              <div>
+                <label class="check"><input id="adaptive" type="checkbox" checked aria-describedby="adaptive-help" /> Follow my speed</label>
+                <p id="adaptive-help" class="help">Adjusts dit, dah, and spacing timing to your keying as you go.</p>
+              </div>
+            </div>
+          </details>
+
+          <details class="settings-group">
+            <summary id="receive-summary">Receiving</summary>
+            <div class="settings-body">
+              <fieldset id="receive-modes" class="receive-modes">
+                <legend class="visually-hidden">How station messages appear</legend>
+              </fieldset>
+            </div>
+          </details>
+
+          <details class="settings-group">
+            <summary>Key and sound</summary>
+            <div class="settings-body">
+              <label class="check"><input id="mute" type="checkbox" /> Mute key tone</label>
+              <label class="check"><input id="swap-paddles" type="checkbox" /> Swap paddles (left-handed)</label>
+            </div>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <div id="announcer" class="visually-hidden" aria-live="polite"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

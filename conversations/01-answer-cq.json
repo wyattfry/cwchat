@@ -1,0 +1,33 @@
+{
+  "id": "answer-cq",
+  "order": 1,
+  "title": "Answer a CQ",
+  "description": "A station is calling CQ. Answer, trade signal reports, names, and locations, then sign off.",
+  "station": "K0DEMO",
+  "lines": [
+    {
+      "speaker": "station",
+      "sent": "CQ CQ DE K0DEMO K0DEMO K"
+    },
+    {
+      "speaker": "learner",
+      "sent": "K0DEMO DE {MYCALL} K"
+    },
+    {
+      "speaker": "station",
+      "sent": "{MYCALL} DE K0DEMO UR RST {RANDOM_RST} NAME {RANDOM_NAME} QTH {RANDOM_QTH} K"
+    },
+    {
+      "speaker": "learner",
+      "sent": "K0DEMO DE {MYCALL} UR RST 599 NAME {MYNAME} QTH TEXAS K"
+    },
+    {
+      "speaker": "station",
+      "sent": "{MYCALL} DE K0DEMO TNX FER QSO 73 K"
+    },
+    {
+      "speaker": "learner",
+      "sent": "K0DEMO DE {MYCALL} 73 SK"
+    }
+  ]
+}

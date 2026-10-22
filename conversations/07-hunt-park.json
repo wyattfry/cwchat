@@ -1,0 +1,33 @@
+{
+  "id": "hunt-park",
+  "order": 7,
+  "title": "Hunt a park (POTA)",
+  "description": "A fast Parks on the Air contact: answer the park activator with cut numbers (5NN), hand back with BK, and confirm the park reference.",
+  "station": "K0PARK",
+  "lines": [
+    {
+      "speaker": "station",
+      "sent": "CQ POTA CQ POTA DE K0PARK K0PARK K"
+    },
+    {
+      "speaker": "learner",
+      "sent": "DE {MYCALL} K"
+    },
+    {
+      "speaker": "station",
+      "sent": "{MYCALL} GM UR 5NN 5NN {RANDOM_STATE} {RANDOM_PARK} BK"
+    },
+    {
+      "speaker": "learner",
+      "sent": "BK TU UR 5NN 5NN TX QSL {RANDOM_PARK} BK"
+    },
+    {
+      "speaker": "station",
+      "sent": "{MYCALL} TU 73 GL BK"
+    },
+    {
+      "speaker": "learner",
+      "sent": "TU 73 GL SK"
+    }
+  ]
+}

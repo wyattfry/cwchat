@@ -1,0 +1,41 @@
+{
+  "id": "ragchew",
+  "order": 5,
+  "title": "The classic ragchew",
+  "description": "A friendly evening chat: say GE, answer HW ?, trade age and years licensed (AGE, LIC, YRS), then sign off with HPE CUL.",
+  "station": "K0CHAT",
+  "lines": [
+    {
+      "speaker": "station",
+      "sent": "CQ CQ DE K0CHAT K0CHAT K"
+    },
+    {
+      "speaker": "learner",
+      "sent": "K0CHAT DE {MYCALL} K"
+    },
+    {
+      "speaker": "station",
+      "sent": "{MYCALL} DE K0CHAT GE TNX FER CALL UR RST {RANDOM_RST} NAME {RANDOM_NAME} QTH {RANDOM_QTH} HW ? K"
+    },
+    {
+      "speaker": "learner",
+      "sent": "K0CHAT DE {MYCALL} GE {RANDOM_NAME} R UR RST 579 NAME {MYNAME} QTH TEXAS HW ? K"
+    },
+    {
+      "speaker": "station",
+      "sent": "{MYCALL} DE K0CHAT R FB SOLID CPY AGE HR {RANDOM_AGE} ES LIC {RANDOM_YRS} YRS HW LONG UR LIC ? K"
+    },
+    {
+      "speaker": "learner",
+      "sent": "K0CHAT DE {MYCALL} R FB LIC 1 YR NEW TO CW K"
+    },
+    {
+      "speaker": "station",
+      "sent": "{MYCALL} DE K0CHAT FB {MYNAME} UR FIST IS FB TNX FER QSO HPE CUL 73 K"
+    },
+    {
+      "speaker": "learner",
+      "sent": "K0CHAT DE {MYCALL} TNX {RANDOM_NAME} FER FB QSO HPE CUL 73 SK"
+    }
+  ]
+}

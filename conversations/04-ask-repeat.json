@@ -1,0 +1,41 @@
+{
+  "id": "ask-repeat",
+  "order": 4,
+  "title": "Ask for a repeat",
+  "description": "Fading (QSB) and interference (QRM) get in the way. Send key words twice, ask for a repeat with PSE RPT and ?, and confirm with R.",
+  "station": "K0FADE",
+  "lines": [
+    {
+      "speaker": "station",
+      "sent": "CQ CQ DE K0FADE K0FADE K"
+    },
+    {
+      "speaker": "learner",
+      "sent": "K0FADE DE {MYCALL} {MYCALL} K"
+    },
+    {
+      "speaker": "station",
+      "sent": "{MYCALL} DE K0FADE R UR RST 459 459 QSB NAME {RANDOM_NAME} QTH {RANDOM_QTH} {RANDOM_QTH} K"
+    },
+    {
+      "speaker": "learner",
+      "sent": "K0FADE DE {MYCALL} UR RST 449 449 QSB NAME {MYNAME} {MYNAME} QTH TEXAS TEXAS PSE RPT UR NAME ? K"
+    },
+    {
+      "speaker": "station",
+      "sent": "{MYCALL} DE K0FADE R R NAME {RANDOM_NAME} {RANDOM_NAME} QRM HR PSE AGN UR QTH ? K"
+    },
+    {
+      "speaker": "learner",
+      "sent": "K0FADE DE {MYCALL} R TNX {RANDOM_NAME} QTH TEXAS TEXAS TEXAS K"
+    },
+    {
+      "speaker": "station",
+      "sent": "{MYCALL} DE K0FADE R TEXAS QSB BAD TNX FER QSO 73 K"
+    },
+    {
+      "speaker": "learner",
+      "sent": "K0FADE DE {MYCALL} R TNX FER QSO 73 SK"
+    }
+  ]
+}
