@@ -43,7 +43,7 @@ No account or external service is needed.
 
 The [Deploy to GitHub Pages workflow](.github/workflows/deploy-pages.yml) tests and builds the site on every push to `main`, then publishes `dist/`. It can also be run manually from the repository's **Actions** tab.
 
-In the repository's **Settings → Pages**, set **Build and deployment → Source** to **GitHub Actions**. Once the workflow succeeds, open the site URL shown there or in the workflow's deployment summary.
+In the repository's **Settings → Pages**, set **Build and deployment → Source** to **GitHub Actions**. Once the workflow succeeds, open <https://wyattfry.github.io/cwchat/>.
 
 ## Container image
 
