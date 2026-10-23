@@ -39,6 +39,12 @@ No account or external service is needed.
 | `npm run build` | Type-check and build a static site into `dist/` |
 | `npm run preview` | Serve the built site |
 
+## GitHub Pages
+
+The [Deploy to GitHub Pages workflow](.github/workflows/deploy-pages.yml) tests and builds the site on every push to `main`, then publishes `dist/`. It can also be run manually from the repository's **Actions** tab.
+
+In the repository's **Settings → Pages**, set **Build and deployment → Source** to **GitHub Actions**. Once the workflow succeeds, open the site URL shown there or in the workflow's deployment summary.
+
 ## Container image
 
 The `Dockerfile` tests and builds the site with the official `node:22-alpine` image, then serves `dist/` from the official `nginx:alpine` image on port 8080 (config in `docker/nginx.conf`). It runs as UID 10001 with a read-only root filesystem; nginx writes only to `/tmp` and logs to stdout and stderr.
