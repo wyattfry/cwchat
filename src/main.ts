@@ -806,6 +806,15 @@ document.addEventListener('visibilitychange', () => {
   if (document.hidden) releaseAll();
 });
 
+function hapticPulse(e: PointerEvent): void {
+  if (e.pointerType !== 'touch') return;
+  try {
+    navigator.vibrate?.(10);
+  } catch {
+    // Haptics are optional; keying must still work if the browser rejects vibration.
+  }
+}
+
 for (const button of ui.touchKeys.querySelectorAll<HTMLButtonElement>('.touch-key')) {
   const source = button.dataset.key as KeySource;
   button.addEventListener('pointerdown', (e) => {
@@ -813,11 +822,13 @@ for (const button of ui.touchKeys.querySelectorAll<HTMLButtonElement>('.touch-ke
     button.setPointerCapture(e.pointerId);
     button.classList.add('pressed');
     keyInput(source, true, now(e.timeStamp));
+    hapticPulse(e);
   });
   const up = (e: PointerEvent) => {
     if (!button.classList.contains('pressed')) return;
     button.classList.remove('pressed');
     keyInput(source, false, now(e.timeStamp));
+    if (e.type === 'pointerup') hapticPulse(e);
   };
   button.addEventListener('pointerup', up);
   button.addEventListener('pointercancel', up);
